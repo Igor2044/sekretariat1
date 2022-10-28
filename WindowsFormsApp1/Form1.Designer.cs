@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.userBox = new System.Windows.Forms.TextBox();
+            this.NameBox = new System.Windows.Forms.TextBox();
             this.imgPassBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.randPic = new System.Windows.Forms.LinkLabel();
@@ -73,12 +73,12 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Weryfikacja";
             // 
-            // userBox
+            // NameBox
             // 
-            this.userBox.Location = new System.Drawing.Point(223, 38);
-            this.userBox.Name = "userBox";
-            this.userBox.Size = new System.Drawing.Size(144, 20);
-            this.userBox.TabIndex = 3;
+            this.NameBox.Location = new System.Drawing.Point(223, 38);
+            this.NameBox.Name = "NameBox";
+            this.NameBox.Size = new System.Drawing.Size(144, 20);
+            this.NameBox.TabIndex = 3;
             // 
             // imgPassBox
             // 
@@ -157,7 +157,7 @@
             this.Controls.Add(this.randPicBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.imgPassBox);
-            this.Controls.Add(this.userBox);
+            this.Controls.Add(this.NameBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -175,7 +175,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox userBox;
+        private System.Windows.Forms.TextBox NameBox;
         private System.Windows.Forms.TextBox imgPassBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox randPicBox;
