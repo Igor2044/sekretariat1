@@ -15,8 +15,7 @@ using System.Runtime.CompilerServices;
 
 namespace WindowsFormsApp1
 
-{
-    
+{    
 
     public partial class Form1 : Form
     {
@@ -39,22 +38,21 @@ namespace WindowsFormsApp1
 
         List<string> listImgPsw = new List<string>()
         {
-            "mxyxw","b5nmm","74853","cg5dd","x3deb","befdb","c7gb3"
+            "mxyxw","b5nmm","74853","cg5dd","x3deb","befbd","c7gb3"
         };
+
+        List<int> listNum = new List<int>();
+
         public class randNum
         {
             public int x = new Random().Next(0, 6);
-            public List<int> listNum = new List<int>();
-            public int y;
         }
 
         private void randPic_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         { 
             randNum objrandNum = new randNum();
             randPicBox.Image = listImg[objrandNum.x];
-            objrandNum.listNum.Add(objrandNum.x);
-            objrandNum.y = 0;
-            objrandNum.y =+ 1;
+            listNum.Add(objrandNum.x);            
         }
 
         private void LogIn_Click(object sender, EventArgs e)
@@ -62,7 +60,7 @@ namespace WindowsFormsApp1
             randNum objrandNum = new randNum();
             string name = "admin";
             string password = "Qwerty1@34";
-            string passwordImg = listImgPsw[objrandNum.listNum[objrandNum.y]];
+            string passwordImg = listImgPsw[listNum[listNum.Count - 1]];
             if(NameBox.Text == name && passwordBox.Text == password && imgPassBox.Text == passwordImg)
             {
                 this.Hide();
