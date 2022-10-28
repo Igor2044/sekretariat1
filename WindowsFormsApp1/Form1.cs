@@ -11,6 +11,7 @@ using WindowsFormsApp1.Properties;
 using System.Threading;
 using System.Web;
 using System.Runtime.Remoting.Messaging;
+using System.Runtime.CompilerServices;
 
 namespace WindowsFormsApp1
 
@@ -43,12 +44,17 @@ namespace WindowsFormsApp1
         public class randNum
         {
             public int x = new Random().Next(0, 6);
+            public List<int> listNum = new List<int>();
+            public int y;
         }
 
         private void randPic_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         { 
             randNum objrandNum = new randNum();
-            randPicBox.Image = listImg[objrandNum.x];            
+            randPicBox.Image = listImg[objrandNum.x];
+            objrandNum.listNum.Add(objrandNum.x);
+            objrandNum.y = 0;
+            objrandNum.y =+ 1;
         }
 
         private void LogIn_Click(object sender, EventArgs e)
@@ -56,8 +62,8 @@ namespace WindowsFormsApp1
             randNum objrandNum = new randNum();
             string name = "admin";
             string password = "Qwerty1@34";
-            string passwordImg = listImgPsw[objrandNum.x];
-            if(NameBox.Text == name && passwordBox.Text == password/*&& imgPassBox.Text == passwordImg*/)
+            string passwordImg = listImgPsw[objrandNum.listNum[objrandNum.y]];
+            if(NameBox.Text == name && passwordBox.Text == password && imgPassBox.Text == passwordImg)
             {
                 this.Hide();
                 Form2 f2 = new Form2();
