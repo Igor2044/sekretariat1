@@ -117,7 +117,6 @@
             this.LogIn.TabIndex = 9;
             this.LogIn.Text = "Zaloguj";
             this.LogIn.UseVisualStyleBackColor = true;
-            this.LogIn.Click += new System.EventHandler(this.LogIn_Click);
             // 
             // Error
             // 
