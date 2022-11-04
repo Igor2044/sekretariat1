@@ -39,6 +39,7 @@ namespace WindowsFormsApp1
                 for(int i = 0; i < x; i++)
                 {
                     showResult.Items.Add(File.ReadAllLines(path + "/" + i));
+
                 }
             }
         }
