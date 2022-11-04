@@ -34,8 +34,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.chooseParameter = new System.Windows.Forms.ComboBox();
+            this.chooseOption = new System.Windows.Forms.ComboBox();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.btnFind = new System.Windows.Forms.Button();
             this.showResult = new System.Windows.Forms.ListBox();
@@ -44,7 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtSurname = new System.Windows.Forms.TextBox();
-            this.txtClass = new System.Windows.Forms.TextBox();
+            this.txtKlass = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -75,8 +75,8 @@
             this.tabPage1.Controls.Add(this.showResult);
             this.tabPage1.Controls.Add(this.btnFind);
             this.tabPage1.Controls.Add(this.txtFind);
-            this.tabPage1.Controls.Add(this.comboBox2);
-            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.chooseOption);
+            this.tabPage1.Controls.Add(this.chooseParameter);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -89,7 +89,7 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnAdd);
-            this.tabPage2.Controls.Add(this.txtClass);
+            this.tabPage2.Controls.Add(this.txtKlass);
             this.tabPage2.Controls.Add(this.txtSurname);
             this.tabPage2.Controls.Add(this.txtName);
             this.tabPage2.Controls.Add(this.label4);
@@ -113,29 +113,29 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Wczytaj kryteria wyszukiwania";
             // 
-            // comboBox1
+            // chooseParameter
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.chooseParameter.FormattingEnabled = true;
+            this.chooseParameter.Items.AddRange(new object[] {
             "Imie",
             "Nazwisko",
             "Klasa"});
-            this.comboBox1.Location = new System.Drawing.Point(54, 73);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(129, 21);
-            this.comboBox1.TabIndex = 1;
+            this.chooseParameter.Location = new System.Drawing.Point(54, 73);
+            this.chooseParameter.Name = "chooseParameter";
+            this.chooseParameter.Size = new System.Drawing.Size(129, 21);
+            this.chooseParameter.TabIndex = 1;
             // 
-            // comboBox2
+            // chooseOption
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.chooseOption.FormattingEnabled = true;
+            this.chooseOption.Items.AddRange(new object[] {
             "równe",
             "zawiera",
             "rozpoczyna się od"});
-            this.comboBox2.Location = new System.Drawing.Point(242, 73);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(130, 21);
-            this.comboBox2.TabIndex = 2;
+            this.chooseOption.Location = new System.Drawing.Point(242, 73);
+            this.chooseOption.Name = "chooseOption";
+            this.chooseOption.Size = new System.Drawing.Size(130, 21);
+            this.chooseOption.TabIndex = 2;
             // 
             // txtFind
             // 
@@ -152,6 +152,7 @@
             this.btnFind.TabIndex = 4;
             this.btnFind.Text = "Szukaj";
             this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // showResult
             // 
@@ -205,12 +206,12 @@
             this.txtSurname.Size = new System.Drawing.Size(253, 20);
             this.txtSurname.TabIndex = 4;
             // 
-            // txtClass
+            // txtKlass
             // 
-            this.txtClass.Location = new System.Drawing.Point(185, 152);
-            this.txtClass.Name = "txtClass";
-            this.txtClass.Size = new System.Drawing.Size(253, 20);
-            this.txtClass.TabIndex = 5;
+            this.txtKlass.Location = new System.Drawing.Point(185, 152);
+            this.txtKlass.Name = "txtKlass";
+            this.txtKlass.Size = new System.Drawing.Size(253, 20);
+            this.txtKlass.TabIndex = 5;
             // 
             // btnAdd
             // 
@@ -221,6 +222,7 @@
             this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Dodaj";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // Form2
             // 
@@ -251,10 +253,10 @@
         private System.Windows.Forms.ListBox showResult;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.TextBox txtFind;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox chooseOption;
+        private System.Windows.Forms.ComboBox chooseParameter;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox txtClass;
+        private System.Windows.Forms.TextBox txtKlass;
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label4;
