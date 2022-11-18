@@ -33,7 +33,6 @@ namespace WindowsFormsApp1
                 string klass = txtKlass.Text;
                 string student = name + " " + surname + " " + klass;
                 students.Add(student);
-                File.Create(path).Close();
                 File.WriteAllLines(path, students);
             }
         }
