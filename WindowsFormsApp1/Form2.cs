@@ -33,55 +33,60 @@ namespace WindowsFormsApp1
                 string klass = txtKlass.Text;
                 string student = name + " " + surname + " " + klass;
                 students.Add(student);
+                File.Create(path).Close();
                 File.WriteAllLines(path, students);
             }
         }
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            if (chooseParameter.SelectedIndex == 0)
+            showResult.Items.Clear();
+            if (students.Count > 0)
             {
-                if(chooseOption.SelectedIndex == 0)
+                if (chooseParameter.SelectedIndex == 0)
                 {
+                    if (chooseOption.SelectedIndex == 0)
+                    {
 
+                    }
+                    else if (chooseOption.SelectedIndex == 1)
+                    {
+
+                    }
+                    else if (chooseOption.SelectedIndex == 2)
+                    {
+
+                    }
                 }
-                else if(chooseOption.SelectedIndex == 1)
+                else if (chooseParameter.SelectedIndex == 1)
                 {
+                    if (chooseOption.SelectedIndex == 0)
+                    {
 
+                    }
+                    else if (chooseOption.SelectedIndex == 1)
+                    {
+
+                    }
+                    else if (chooseOption.SelectedIndex == 2)
+                    {
+
+                    }
                 }
-                else if(chooseOption.SelectedIndex == 2)
+                else if (chooseParameter.SelectedIndex == 2)
                 {
+                    if (chooseOption.SelectedIndex == 0)
+                    {
 
-                }
-            }
-            else if (chooseParameter.SelectedIndex == 1)
-            {
-                if (chooseOption.SelectedIndex == 0)
-                {
+                    }
+                    else if (chooseOption.SelectedIndex == 1)
+                    {
 
-                }
-                else if (chooseOption.SelectedIndex == 1)
-                {
+                    }
+                    else if (chooseOption.SelectedIndex == 2)
+                    {
 
-                }
-                else if (chooseOption.SelectedIndex == 2)
-                {
-
-                }
-            }
-            else if (chooseParameter.SelectedIndex == 2)
-            {
-                if (chooseOption.SelectedIndex == 0)
-                {
-
-                }
-                else if (chooseOption.SelectedIndex == 1)
-                {
-
-                }
-                else if (chooseOption.SelectedIndex == 2)
-                {
-
+                    }
                 }
             }
         }
