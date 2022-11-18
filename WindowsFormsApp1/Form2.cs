@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
         }
 
         List<string> students = new List<string>();
-        string path = @"C:\Users\student\Desktop\uczen.txt";
+        string path = @"C:\Users\TEMP\Desktop\uczen.txt";
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -40,54 +40,90 @@ namespace WindowsFormsApp1
         private void btnFind_Click(object sender, EventArgs e)
         {
             showResult.Items.Clear();
-            if (students.Count > 0)
+            int x = 0;
+            foreach (string line in File.ReadLines(path))
             {
-                if (chooseParameter.SelectedIndex == 0)
+                showResult.Items.Add(line);
+                x++;
+            }
+            if (chooseParameter.SelectedIndex == 0)
+            {
+                if (chooseOption.SelectedIndex == 0)
                 {
-                    if (chooseOption.SelectedIndex == 0)
-                    {
+                    showResult.Items.Clear();
 
-                    }
-                    else if (chooseOption.SelectedIndex == 1)
+                }
+                else if (chooseOption.SelectedIndex == 1)
+                {
+                    showResult.Items.Clear();
+                    x = 0;
+                    foreach (string line in File.ReadLines(path))
                     {
-
-                    }
-                    else if (chooseOption.SelectedIndex == 2)
-                    {
-
+                        if (line.Contains(txtFind.Text))
+                        {
+                            showResult.Items.Add(line);
+                            x++;
+                        }
                     }
                 }
-                else if (chooseParameter.SelectedIndex == 1)
+                else if (chooseOption.SelectedIndex == 2)
                 {
-                    if (chooseOption.SelectedIndex == 0)
-                    {
+                    showResult.Items.Clear();
 
-                    }
-                    else if (chooseOption.SelectedIndex == 1)
-                    {
-
-                    }
-                    else if (chooseOption.SelectedIndex == 2)
-                    {
-
-                    }
-                }
-                else if (chooseParameter.SelectedIndex == 2)
-                {
-                    if (chooseOption.SelectedIndex == 0)
-                    {
-
-                    }
-                    else if (chooseOption.SelectedIndex == 1)
-                    {
-
-                    }
-                    else if (chooseOption.SelectedIndex == 2)
-                    {
-
-                    }
                 }
             }
+            else if (chooseParameter.SelectedIndex == 1)
+            {
+                if (chooseOption.SelectedIndex == 0)
+                {
+                    showResult.Items.Clear();
+
+                }
+                else if (chooseOption.SelectedIndex == 1)
+                {
+                    showResult.Items.Clear();
+                    x = 0;
+                    foreach (string line in File.ReadLines(path))
+                    {
+                        if (line.Contains(txtFind.Text))
+                        {
+                            showResult.Items.Add(line);
+                            x++;
+                        }
+                    }
+                }
+                else if (chooseOption.SelectedIndex == 2)
+                {
+                    showResult.Items.Clear();
+
+                }
+            }
+            else if (chooseParameter.SelectedIndex == 2)
+            {
+                if (chooseOption.SelectedIndex == 0)
+                {
+                    showResult.Items.Clear();
+
+                }
+                else if (chooseOption.SelectedIndex == 1)
+                {
+                    showResult.Items.Clear();
+                    x = 0;
+                    foreach (string line in File.ReadLines(path))
+                    {
+                        if (line.Contains(txtFind.Text))
+                        {
+                            showResult.Items.Add(line);
+                            x++;
+                        }
+                    }
+                }
+                else if (chooseOption.SelectedIndex == 2)
+                {
+                    showResult.Items.Clear();
+
+                }
+            }            
         }
     }
 }
