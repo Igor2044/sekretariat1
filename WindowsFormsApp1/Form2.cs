@@ -22,54 +22,69 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        List<string> students = new List<string>();
+        List<string> lstudents = new List<string>();        
         string path = @"C:\Users\TEMP\Desktop\uczen.txt";
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            foreach (string line in File.ReadLines(path))
+            {
+                lstudents.Add(line);
+            }
+            
             if (txtName.Text != "" && txtSurname.Text != "" && txtKlass.Text != "") {
                 string name = txtName.Text;
                 string surname = txtSurname.Text;
                 string klass = txtKlass.Text;
                 string student = name + " " + surname + " " + klass;
-                students.Add(student);
-                File.WriteAllLines(path, students);
+                lstudents.Add(student);
+                File.WriteAllLines(path, lstudents);
             }
         }
 
+        List<string> lwords = File.ReadAllText("uczen.txt").Split(' ').ToList();
+
         private void btnFind_Click(object sender, EventArgs e)
-        {
+        {            
             showResult.Items.Clear();
-            int x = 0;
             foreach (string line in File.ReadLines(path))
             {
-                showResult.Items.Add(line);
-                x++;
+                showResult.Items.Add(line);                
             }
             if (chooseParameter.SelectedIndex == 0)
             {
                 if (chooseOption.SelectedIndex == 0)
                 {
                     showResult.Items.Clear();
-
+                    for(int i = 0; i < lwords.Count; i+=3)
+                    {
+                        if (string.Equals(lwords[i],(txtFind.Text)))
+                        {
+                            showResult.Items.Add(lwords[i]);
+                        }
+                    }
                 }
                 else if (chooseOption.SelectedIndex == 1)
                 {
                     showResult.Items.Clear();
-                    x = 0;
-                    foreach (string line in File.ReadLines(path))
+                    for (int i = 0; i < lwords.Count; i += 3)
                     {
-                        if (line.Contains(txtFind.Text))
+                        if (lwords[i].Contains(txtFind.Text))
                         {
-                            showResult.Items.Add(line);
-                            x++;
+                            showResult.Items.Add(lwords[i]);
                         }
                     }
                 }
                 else if (chooseOption.SelectedIndex == 2)
                 {
                     showResult.Items.Clear();
-
+                    for (int i = 0; i < lwords.Count; i += 3)
+                    {
+                        if (lwords[i].StartsWith(txtFind.Text))
+                        {
+                            showResult.Items.Add(lwords[i]);
+                        }
+                    }
                 }
             }
             else if (chooseParameter.SelectedIndex == 1)
@@ -77,25 +92,35 @@ namespace WindowsFormsApp1
                 if (chooseOption.SelectedIndex == 0)
                 {
                     showResult.Items.Clear();
-
+                    for (int i = 1; i < lwords.Count; i += 3)
+                    {
+                        if (string.Equals(lwords[i], (txtFind.Text)))
+                        {
+                            showResult.Items.Add(lwords[i]);
+                        }
+                    }
                 }
                 else if (chooseOption.SelectedIndex == 1)
                 {
                     showResult.Items.Clear();
-                    x = 0;
-                    foreach (string line in File.ReadLines(path))
+                    for (int i = 1; i < lwords.Count; i += 3)
                     {
-                        if (line.Contains(txtFind.Text))
+                        if (lwords[i].Contains(txtFind.Text))
                         {
-                            showResult.Items.Add(line);
-                            x++;
+                            showResult.Items.Add(lwords[i]);
                         }
                     }
                 }
                 else if (chooseOption.SelectedIndex == 2)
                 {
                     showResult.Items.Clear();
-
+                    for (int i = 1; i < lwords.Count; i += 3)
+                    {
+                        if (lwords[i].StartsWith(txtFind.Text))
+                        {
+                            showResult.Items.Add(lwords[i]);
+                        }
+                    }
                 }
             }
             else if (chooseParameter.SelectedIndex == 2)
@@ -103,25 +128,35 @@ namespace WindowsFormsApp1
                 if (chooseOption.SelectedIndex == 0)
                 {
                     showResult.Items.Clear();
-
+                    for (int i = 2; i < lwords.Count; i += 3)
+                    {
+                        if (string.Equals(lwords[i], (txtFind.Text)))
+                        {
+                            showResult.Items.Add(lwords[i]);
+                        }
+                    }
                 }
                 else if (chooseOption.SelectedIndex == 1)
                 {
                     showResult.Items.Clear();
-                    x = 0;
-                    foreach (string line in File.ReadLines(path))
+                    for (int i = 2; i < lwords.Count; i += 3)
                     {
-                        if (line.Contains(txtFind.Text))
+                        if (lwords[i].Contains(txtFind.Text))
                         {
-                            showResult.Items.Add(line);
-                            x++;
+                            showResult.Items.Add(lwords[i]);
                         }
                     }
                 }
                 else if (chooseOption.SelectedIndex == 2)
                 {
                     showResult.Items.Clear();
-
+                    for (int i = 2; i < lwords.Count; i += 3)
+                    {
+                        if (lwords[i].StartsWith(txtFind.Text))
+                        {
+                            showResult.Items.Add(lwords[i]);
+                        }
+                    }
                 }
             }            
         }
