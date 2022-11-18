@@ -20,6 +20,10 @@ namespace WindowsFormsApp1
         public Form2()
         {
             InitializeComponent();
+            foreach (string line in File.ReadLines(path))
+            {
+                lstudents.Add(line);
+            }
         }
 
         List<string> lstudents = new List<string>();        
@@ -27,11 +31,6 @@ namespace WindowsFormsApp1
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            foreach (string line in File.ReadLines(path))
-            {
-                lstudents.Add(line);
-            }
-            
             if (txtName.Text != "" && txtSurname.Text != "" && txtKlass.Text != "") {
                 string name = txtName.Text;
                 string surname = txtSurname.Text;
@@ -42,10 +41,11 @@ namespace WindowsFormsApp1
             }
         }
 
-        List<string> lwords = File.ReadAllText("uczen.txt").Split(' ').ToList();
+        
 
         private void btnFind_Click(object sender, EventArgs e)
-        {            
+        {
+            List<string> lwords = File.ReadAllText(path).Split(' ','\n').ToList();
             showResult.Items.Clear();
             foreach (string line in File.ReadLines(path))
             {
@@ -60,7 +60,7 @@ namespace WindowsFormsApp1
                     {
                         if (string.Equals(lwords[i],(txtFind.Text)))
                         {
-                            showResult.Items.Add(lwords[i]);
+                            showResult.Items.Add(lwords[i] + " " + lwords[i + 1] + " " + lwords[i + 2]);
                         }
                     }
                 }
@@ -71,7 +71,7 @@ namespace WindowsFormsApp1
                     {
                         if (lwords[i].Contains(txtFind.Text))
                         {
-                            showResult.Items.Add(lwords[i]);
+                            showResult.Items.Add(lwords[i] + " " + lwords[i + 1] + " " + lwords[i + 2]);
                         }
                     }
                 }
@@ -82,7 +82,7 @@ namespace WindowsFormsApp1
                     {
                         if (lwords[i].StartsWith(txtFind.Text))
                         {
-                            showResult.Items.Add(lwords[i]);
+                            showResult.Items.Add(lwords[i] + " " + lwords[i + 1] + " " + lwords[i + 2]);
                         }
                     }
                 }
@@ -96,7 +96,7 @@ namespace WindowsFormsApp1
                     {
                         if (string.Equals(lwords[i], (txtFind.Text)))
                         {
-                            showResult.Items.Add(lwords[i]);
+                            showResult.Items.Add(lwords[i - 1] + " " + lwords[i] + " " + lwords[i + 1]);
                         }
                     }
                 }
@@ -107,7 +107,7 @@ namespace WindowsFormsApp1
                     {
                         if (lwords[i].Contains(txtFind.Text))
                         {
-                            showResult.Items.Add(lwords[i]);
+                            showResult.Items.Add(lwords[i - 1] + " " + lwords[i] + " " + lwords[i + 1]);
                         }
                     }
                 }
@@ -118,7 +118,7 @@ namespace WindowsFormsApp1
                     {
                         if (lwords[i].StartsWith(txtFind.Text))
                         {
-                            showResult.Items.Add(lwords[i]);
+                            showResult.Items.Add(lwords[i - 1] + " " + lwords[i] + " " + lwords[i + 1]);
                         }
                     }
                 }
@@ -132,7 +132,7 @@ namespace WindowsFormsApp1
                     {
                         if (string.Equals(lwords[i], (txtFind.Text)))
                         {
-                            showResult.Items.Add(lwords[i]);
+                            showResult.Items.Add(lwords[i - 2] + " " + lwords[i - 1] + " " + lwords[i]);
                         }
                     }
                 }
@@ -143,7 +143,7 @@ namespace WindowsFormsApp1
                     {
                         if (lwords[i].Contains(txtFind.Text))
                         {
-                            showResult.Items.Add(lwords[i]);
+                            showResult.Items.Add(lwords[i - 2] + " " + lwords[i - 1] + " " + lwords[i]);
                         }
                     }
                 }
@@ -154,7 +154,7 @@ namespace WindowsFormsApp1
                     {
                         if (lwords[i].StartsWith(txtFind.Text))
                         {
-                            showResult.Items.Add(lwords[i]);
+                            showResult.Items.Add(lwords[i - 2] + " " + lwords[i - 1] + " " + lwords[i]);
                         }
                     }
                 }
